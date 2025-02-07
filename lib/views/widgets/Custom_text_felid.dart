@@ -9,16 +9,16 @@ class CustomTextFelids extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      cursorColor: KPrimaryColor,
+      cursorColor: kPrimaryColor,
       maxLines: maxLine,
       decoration: InputDecoration(
         hintText: hint,
         hintStyle: const TextStyle(
-          color: KPrimaryColor,
+          color: kPrimaryColor,
         ),
         border: BuildBorder(),
         enabledBorder: BuildBorder(),
-        focusedBorder: BuildBorder(KPrimaryColor),
+        focusedBorder: BuildBorder(kPrimaryColor),
       ),
     );
   }
