@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/views/widgets/Custom_text_felid.dart';
+import 'package:notes_app/views/widgets/custom_button.dart';
 
 class AddNote extends StatelessWidget {
   const AddNote({super.key});
@@ -8,22 +9,31 @@ class AddNote extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.0),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 42,
-          ),
-          CustomTextFelids(
-            hint: 'Title',
-          ),
-          SizedBox(
-            height: 32,
-          ),
-          CustomTextFelids(
-            hint: 'Content',
-            maxLine: 5,
-          ),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 42,
+            ),
+            CustomTextFelids(
+              hint: 'Title',
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            CustomTextFelids(
+              hint: 'Content',
+              maxLine: 5,
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            CustomButton(),
+            SizedBox(
+              height: 16,
+            ),
+          ],
+        ),
       ),
     );
   }
