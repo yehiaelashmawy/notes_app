@@ -15,7 +15,10 @@ class NotesViweBody extends StatelessWidget {
             SizedBox(
               height: 60,
             ),
-            CustomAppBar(),
+            CustomAppBar(
+              title: 'Notes',
+              icon: Icons.search,
+            ),
             Expanded(child: NotesListView()),
           ],
         ),
