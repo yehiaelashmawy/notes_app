@@ -10,30 +10,68 @@ class AddNote extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 42,
-            ),
-            CustomTextFelids(
-              hint: 'Title',
-            ),
-            SizedBox(
-              height: 24,
-            ),
-            CustomTextFelids(
-              hint: 'Content',
-              maxLine: 5,
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            CustomButton(),
-            SizedBox(
-              height: 16,
-            ),
-          ],
-        ),
+        child: AddNotesForme(),
+      ),
+    );
+  }
+}
+
+class AddNotesForme extends StatefulWidget {
+  const AddNotesForme({
+    super.key,
+  });
+
+  @override
+  State<AddNotesForme> createState() => _AddNotesFormeState();
+}
+
+final GlobalKey<FormState> formKey = GlobalKey();
+AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+String? title, subTitle;
+
+class _AddNotesFormeState extends State<AddNotesForme> {
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 42,
+          ),
+          CustomTextFelids(
+            onSaved: (value) {
+              title = value;
+            },
+            hint: 'Title',
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          CustomTextFelids(
+            onSaved: (value) {
+              subTitle = value;
+            },
+            hint: 'Content',
+            maxLine: 5,
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          CustomButton(
+            onTap: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+        ],
       ),
     );
   }
