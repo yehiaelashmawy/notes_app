@@ -4,19 +4,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SimpleBlocObserver implements BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
-    // TODO: implement onChange
     debugPrint('change =$change');
   }
 
   @override
   void onClose(BlocBase bloc) {
-    // TODO: implement onClose
     debugPrint('close =$bloc');
   }
 
   @override
   void onCreate(BlocBase bloc) {
-    // TODO: implement onCreate
     debugPrint('crare =$bloc');
   }
 
